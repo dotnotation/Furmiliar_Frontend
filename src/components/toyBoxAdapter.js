@@ -8,8 +8,9 @@ class ToyBoxAdapter {
         fetch(this.baseBoxURL)
         .then(r => r.json())
         .then(toyBoxes => {
+            console.log(toyBoxes)
             toyBoxes.forEach(toyBox => {
-                const tb = new ToyBoxAdapter(toyBox)
+                const tb = new ToyBox(toyBox)
                 tb.addToDom()
             })
         })
