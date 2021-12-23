@@ -1,3 +1,15 @@
+.toy-box-card {
+    text-align: center;
+    border: grey solid 1px;
+    border-radius: 25px;
+    padding: 1rem;
+    width: 20rem;
+    height: 20rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px #A5E6DF
+  }
+
 .toy-box-photo {
     justify-self: center;
     height: 12rem;
