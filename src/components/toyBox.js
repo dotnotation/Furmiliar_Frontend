@@ -17,6 +17,7 @@ class ToyBox {
         toyBoxName.innerText = this.name
         const openToyBox = document.createElement("button")
         openToyBox.innerText = "Open Toy Box" 
+        openToyBox.setAttribute("id", "toy-box-button")
 
         toyBoxDiv.appendChild(toyBoxCard)
         toyBoxCard.appendChild(photoBox)
