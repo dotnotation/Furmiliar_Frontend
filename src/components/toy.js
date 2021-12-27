@@ -1,4 +1,5 @@
 class Toy {
+
     constructor({id, name, photo, price, brand, url, rating, needs_repair, squeaker, crinkle, treat, toy_box_id}){
         this.id = id
         this.name = name
@@ -18,6 +19,7 @@ class Toy {
         const toyDiv = document.getElementById("toy")
         const toyCard = document.createElement("div")
         toyCard.className = "toy-card"
+        toyCard.setAttribute("id", `toy-${this.id}`)
         const toyPhoto = document.createElement("img")
         toyPhoto.src = this.photo
         toyPhoto.className = "toy-photo"
