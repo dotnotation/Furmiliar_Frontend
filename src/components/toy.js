@@ -13,4 +13,20 @@ class Toy {
         this.treat = treat
         this.toy_box_id = toy_box_id
     }
+
+    renderToys(){
+        const toyDiv = document.getElementById("toy")
+        const toyCard = document.createElement("div")
+        toyCard.className = "toy-card"
+        const toyPhoto = document.createElement("img")
+        toyPhoto.src = this.photo
+        toyPhoto.className = "toy-photo"
+        const toyName = document.createElement("h4")
+        toyName.innerText = this.name
+
+
+        toyDiv.appendChild(toyCard)
+        toyCard.appendChild(toyPhoto)
+        toyCard.appendChild(toyName)
+    }
 }
