@@ -1,9 +1,16 @@
+body {
+    font-family: sans-serif;
+}
+
 .header {
     background-color: #A9E0FC;
     color: whitesmoke;
     border: #A9E0FC 3px;
-    height: 5rem;
+    height: 7rem;
     padding: 1rem;
+    -webkit-text-stroke-color: #B3C1F2;
+    -webkit-text-stroke-width: 2px;
+    font-size: 22pt;
 }
 
 .toy-box-card {
