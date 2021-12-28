@@ -17,6 +17,25 @@
     border-radius: 10px;
 }
 
+.toy-card {
+    text-align: center;
+    border: grey solid 1px;
+    border-radius: 25px;
+    padding: 1rem;
+    width: 20rem;
+    height: 40rem;
+    display: inline-block;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px #A5E6DF
+}
+
+.toy-photo {
+    justify-self: center;
+    height: 12rem;
+    width: auto;
+    border-radius: 10px;
+}
+
 button {
     background-color: #B3C1F2;
     border: none;
@@ -27,4 +46,5 @@ button {
     font-size: 16px;
     display: inline-block;
     margin-right: 10px;
+    font: bold;
 }

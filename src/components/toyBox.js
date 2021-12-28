@@ -5,13 +5,14 @@ class ToyBox {
         this.name = name
         this. photo = photo
         this.toys = toys.map(t => new Toy(t))
+        this.listenEvents = this.listenEvents.bind(this)
     }
 
     addToDom(){
         const toyBoxDiv = document.getElementById("toy-box")
         const toyBoxCard = document.createElement("div")
         toyBoxCard.className = "toy-box-card"
-        toyBoxCard.setAttribute("id", `toy-box-${this.id}`)
+        toyBoxCard.setAttribute("data-id", `${this.id}`)
         const photoBox = document.createElement("img")
         photoBox.src = this.photo
         photoBox.className = "toy-box-photo"
@@ -41,6 +42,13 @@ class ToyBox {
         return toyBoxCard
     }
 
+    getToys(){
+        console.log(this)
+        const toyCard = document.getElementById("toy-card")
+        this.toys.forEach(t => t.renderToys())
+        currentToys = toyCard
+    }
+
     listenEvents(e){
         console.log("listenEvents hit", e.target.parentElement)
         const div = e.target.parentElement
@@ -50,7 +58,10 @@ class ToyBox {
         switch (action) {
             case "open":
                 console.log("hit open button")
-                if (currentToys)
+                if (currentToys) currentToys.remove()
+                console.log("Opening Toy Box", div.dataset.id, this)
+                console.log(this.id == div.dataset.id)
+                this.getToys()
                 break
             
             default:

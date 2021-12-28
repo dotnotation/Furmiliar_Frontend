@@ -25,21 +25,20 @@ class Toy {
         toyPhoto.className = "toy-photo"
         const toyName = document.createElement("h4")
         toyName.innerText = this.name
-        const toyBase = document.createElement("h6")
-        const toyBrand = toyBase
-        toyBrand.innerText = this.brand
-        const toyURL = toyBase
-        toyURL.innerHTML = this.url
-        const toyRating = toyBase
-        toyRating.innerText = this.rating
-        const toyRepair = toyBase
-        toyRepair.innerText = this.needs_repair
-        const toySqueaker = toyBase
-        toySqueaker.innerText = this.squeaker
-        const toyCrinkle = toyBase
-        toyCrinkle.innerText = this.crinkle
-        const toyTreat = toyBase
-        toyTreat.innerText = this.treat
+        const toyBrand = document.createElement("h5")
+        toyBrand.innerText = `Brand: ${this.brand}`
+        const toyURL = document.createElement("h5")
+        toyURL.innerHTML = `Website: ${this.url}`
+        const toyRating = document.createElement("h5")
+        toyRating.innerText = `Rating: ${this.rating}`
+        const toyRepair = document.createElement("h5")
+        toyRepair.innerText = `Needs Repair?: ${this.needs_repair}`
+        const toySqueaker = document.createElement("h5")
+        toySqueaker.innerText = `Squeaker?: ${this.squeaker}`
+        const toyCrinkle = document.createElement("h5")
+        toyCrinkle.innerText = `Crinkle?: ${this.crinkle}`
+        const toyTreat = document.createElement("h5")
+        toyTreat.innerText = `Hides Treats?: ${this.treat}`
 
 
         toyDiv.appendChild(toyCard)
