@@ -39,6 +39,15 @@ class Toy {
         toyCrinkle.innerText = `Crinkle?: ${this.crinkle}`
         const toyTreat = document.createElement("h5")
         toyTreat.innerText = `Hides Treats?: ${this.treat}`
+        const deleteToy = document.createElement("button")
+        deleteToy.innerHTML = "&#10006"
+        deleteToy.setAttribute("id", "toy-delete")
+        deleteToy.setAttribute("data-action", "delete")
+        const editToy = document.createElement("button")
+        editToy.innerHTML = "&#9999"
+        editToy.setAttribute("id", "toy-edit")
+        editToy.setAttribute("data-action", "edit")
+        toyDiv.addEventListener("click", this.toyEvents)
 
 
         toyDiv.appendChild(toyCard)
@@ -51,5 +60,7 @@ class Toy {
         toyCard.appendChild(toySqueaker)
         toyCard.appendChild(toyCrinkle)
         toyCard.appendChild(toyTreat)
+        toyCard.appendChild(deleteToy)
+        toyCard.appendChild(editToy)
     }
 }
