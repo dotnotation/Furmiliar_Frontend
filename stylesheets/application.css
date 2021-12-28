@@ -1,3 +1,11 @@
+.header {
+    background-color: #A9E0FC;
+    color: whitesmoke;
+    border: #A9E0FC 3px;
+    height: 5rem;
+    padding: 1rem;
+}
+
 .toy-box-card {
     text-align: center;
     border: grey solid 1px;

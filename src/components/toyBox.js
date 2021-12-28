@@ -5,6 +5,7 @@ class ToyBox {
         this.name = name
         this. photo = photo
         this.toys = toys.map(t => new Toy(t))
+        this.listenEvents = this.listenEvents.bind(this)
     }
 
     addToDom(){
@@ -46,4 +47,22 @@ class ToyBox {
         currentToys = toyCard
     }
 
+    listenEvents(e){
+        console.log("listenEvents hit", e.target.parentElement)
+        const div = e.target.parentElement
+        const action = e.target.dataset.action
+        switch (action) {
+            case "open":
+                console.log("hit open button", currentToys)
+                if (currentToys) currentToys.remove()
+                console.log("Opening Toy Box", div.dataset.id, this)
+                console.log(this.id == div.dataset.id)
+                    if (this.id == div.dataset.id) this.getToys()
+                break
+            
+            default:
+                break
+        }
+    }
+ 
 }
