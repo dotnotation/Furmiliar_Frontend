@@ -21,10 +21,15 @@ class ToyBox {
         openToyBox.innerText = "Open Toy Box" 
         openToyBox.setAttribute("id", `toy-box-button-${this.id}`)
         openToyBox.setAttribute("data-action", "open")
-        openToyBox.addEventListener("click", (e) => {
-            console.log(this.toys)
-            console.log(e.target)
-        })
+        const deleteToyBox = document.createElement("button")
+        deleteToyBox.innerHTML = "&#xf014;"
+        deleteToyBox.setAttribute("id", "toy-box-delete")
+        deleteToyBox.setAttribute("data-action", "delete")
+        const editToyBox = document.createElement("button")
+        editToyBox.innerHTML = "&#9999;"
+        editToyBox.setAttribute("id", "toy-box-edit")
+        editToyBox.setAttribute("data-action", "edit")
+        toyBoxDiv.addEventListener("click", this.listenEvents)
 
         toyBoxDiv.appendChild(toyBoxCard)
         toyBoxCard.appendChild(photoBox)
@@ -32,6 +37,20 @@ class ToyBox {
         toyBoxCard.appendChild(openToyBox)
 
         return toyBoxCard
+    }
+
+    listenEvents(e){
+        console.log("listenEvents hit")
+        const div = e.target.parentElement
+        const action = e.target.dataset.action
+        switch (action) {
+            case "open":
+                if (currentToys)
+                break
+            
+            default:
+                break
+        }
     }
  
 }
