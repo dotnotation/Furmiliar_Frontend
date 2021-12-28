@@ -8,6 +8,21 @@ class ToyBox {
         this.listenEvents = this.listenEvents.bind(this)
     }
 
+    createToyBoxForm(){
+        const formContainer = document.getElementById("toy-box-form")
+        const form = document.createElement("form")
+        const photoInput = document.createElement("input")
+        photoInput.setAttribute("type", "text")
+        //photoInput.setAttribute("id", "photo-input")
+        const nameInput = document.createElement("input")
+        nameInput.setAttribute("type", "text")
+        //nameInput.setAttribute("id", "name-input")
+
+        form.appendChild(photoInput)
+        form.appendChild(nameInput)
+        formContainer.append(form)
+    } 
+
     addToDom(){
         const toyBoxDiv = document.getElementById("toy-box")
         const toyBoxCard = document.createElement("div")
@@ -38,12 +53,10 @@ class ToyBox {
         toyBoxCard.appendChild(openToyBox)
         toyBoxCard.appendChild(deleteToyBox)
         toyBoxCard.appendChild(editToyBox)
-
-        return toyBoxCard
     }
 
     getToys(){
-        console.log(this)
+        console.log(this.toys)
         const toyCard = document.getElementById("toy-card")
         this.toys.forEach(t => t.renderToys())
         currentToys = toyCard
@@ -53,15 +66,13 @@ class ToyBox {
         console.log("listenEvents hit", e.target.parentElement)
         const div = e.target.parentElement
         const action = e.target.dataset.action
-        console.log(e.target.parentElement)
-        console.log(action)
         switch (action) {
             case "open":
-                console.log("hit open button")
+                console.log("hit open button", currentToys)
                 if (currentToys) currentToys.remove()
                 console.log("Opening Toy Box", div.dataset.id, this)
                 console.log(this.id == div.dataset.id)
-                this.getToys()
+                    if (this.id == div.dataset.id) this.getToys()
                 break
             
             default:
