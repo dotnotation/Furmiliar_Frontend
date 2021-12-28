@@ -28,7 +28,7 @@ class Toy {
         const toyBrand = document.createElement("h5")
         toyBrand.innerText = `Brand: ${this.brand}`
         const toyURL = document.createElement("h5")
-        toyURL.innerHTML = `Website: ${this.url}`
+        toyURL.innerHTML = `Website: <a href="${this.url}">${this.url}</a>`
         const toyRating = document.createElement("h5")
         toyRating.innerText = `Rating: ${this.rating}`
         const toyRepair = document.createElement("h5")
