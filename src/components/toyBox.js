@@ -22,11 +22,11 @@ class ToyBox {
         openToyBox.setAttribute("id", `toy-box-button-${this.id}`)
         openToyBox.setAttribute("data-action", "open")
         const deleteToyBox = document.createElement("button")
-        deleteToyBox.innerHTML = "&#xf014;"
+        deleteToyBox.innerHTML = "&#10006"
         deleteToyBox.setAttribute("id", "toy-box-delete")
         deleteToyBox.setAttribute("data-action", "delete")
         const editToyBox = document.createElement("button")
-        editToyBox.innerHTML = "&#9999;"
+        editToyBox.innerHTML = "&#9999"
         editToyBox.setAttribute("id", "toy-box-edit")
         editToyBox.setAttribute("data-action", "edit")
         toyBoxDiv.addEventListener("click", this.listenEvents)
@@ -35,16 +35,21 @@ class ToyBox {
         toyBoxCard.appendChild(photoBox)
         toyBoxCard.appendChild(toyBoxName)
         toyBoxCard.appendChild(openToyBox)
+        toyBoxCard.appendChild(deleteToyBox)
+        toyBoxCard.appendChild(editToyBox)
 
         return toyBoxCard
     }
 
     listenEvents(e){
-        console.log("listenEvents hit")
+        console.log("listenEvents hit", e.target.parentElement)
         const div = e.target.parentElement
         const action = e.target.dataset.action
+        console.log(e.target.parentElement)
+        console.log(action)
         switch (action) {
             case "open":
+                console.log("hit open button")
                 if (currentToys)
                 break
             
