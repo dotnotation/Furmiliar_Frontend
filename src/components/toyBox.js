@@ -21,10 +21,10 @@ class ToyBox {
         openToyBox.innerText = "Open Toy Box" 
         openToyBox.setAttribute("id", `toy-box-button-${this.id}`)
         openToyBox.setAttribute("data-action", "open")
-        // openToyBox.addEventListener("click", (e) => {
-        //     console.log(this.toys)
-        //     console.log(e.target)
-        // })
+        openToyBox.addEventListener("click", (e) => {
+            console.log(this.toys)
+            console.log(e.target)
+        })
 
         toyBoxDiv.appendChild(toyBoxCard)
         toyBoxCard.appendChild(photoBox)
