@@ -1,10 +1,9 @@
 const toyBoxAdapter = new ToyBoxAdapter("http://localhost:3000")
 let editMode = false
 let currentToys = false
-// const toyBox = new ToyBox
+const toyBoxForm = new ToyBoxForm
 
 document.addEventListener("DOMContentLoaded", () => {
     toyBoxAdapter.fetchToyBoxes()
-    createToyBoxForm()
-
+    toyBoxForm.createToyBoxForm()
 })

@@ -13,6 +13,7 @@ class ToyBoxAdapter {
                 const tb = new ToyBox(toyBox)
                 tb.addToDom()
             })
+ 
         })
         .catch(error => console.error(error))
     }
