@@ -42,22 +42,24 @@ class ToyBox {
 
     getToys(){
         console.log(this.toys)
-        const toyCard = document.getElementById("toy-card")
+        const toyContainer = document.getElementById("toy")
+        toyContainer.innerHTML = ""
         this.toys.forEach(t => t.renderToys())
-        currentToys = toyCard
     }
 
     listenEvents(e){
         console.log("listenEvents hit", e.target.parentElement)
         const div = e.target.parentElement
         const action = e.target.dataset.action
+    
+        //debugger
         switch (action) {
             case "open":
-                console.log("hit open button", currentToys)
-                if (currentToys) currentToys.remove()
+                console.log("hit open button")
                 console.log("Opening Toy Box", div.dataset.id, this)
                 console.log(this.id == div.dataset.id)
-                    if (this.id == div.dataset.id) this.getToys()
+                if (this.id == div.dataset.id) this.getToys()
+                    return false
                 break
             
             default:
