@@ -65,6 +65,7 @@ class ToyBox {
 
             case "delete":
                 console.log("hit delete button")
+                toyBoxAdapter.deleteToyBox(div)
                 break
             
             case "edit":
