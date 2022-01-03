@@ -1,6 +1,6 @@
 class ToyBoxForm{
     constructor(){
-
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     createToyBoxForm(){
@@ -17,6 +17,7 @@ class ToyBoxForm{
         nameInput.setAttribute("id", "name-input")
         nameInput.setAttribute("placeholder", "Name")
         const submit = document.createElement("button")
+        submit.setAttribute("type", "submit")
         submit.innerText = "Create Toy Box"
 
         form.appendChild(header)
@@ -24,5 +25,16 @@ class ToyBoxForm{
         form.appendChild(nameInput)
         form.appendChild(submit)
         formContainer.append(form)
+
+        form.addEventListener("submit", this.handleSubmit)
     } 
+
+    handleSubmit(e) {
+        console.log("hit submit")
+        e.preventDefault()
+        const photoInput = e.target[0]
+        const nameInput = e.target[1]
+        console.log(photoInput, nameInput)
+        toyBoxAdapter.createToyBox(photoInput, nameInput)
+    }
 }

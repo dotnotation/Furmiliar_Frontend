@@ -55,14 +55,20 @@ class ToyBox {
         const div = e.target.parentElement
         const action = e.target.dataset.action
     
-        //debugger
         switch (action) {
             case "open":
                 console.log("hit open button")
                 console.log("Opening Toy Box", div.dataset.id, this)
                 console.log(this.id == div.dataset.id)
                 if (this.id == div.dataset.id) this.getToys()
-                    return false
+                break
+
+            case "delete":
+                console.log("hit delete button")
+                break
+            
+            case "edit":
+                console.log("hit edit button")
                 break
             
             default:
