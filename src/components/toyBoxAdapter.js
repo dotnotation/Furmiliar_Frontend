@@ -33,10 +33,12 @@ class ToyBoxAdapter {
         .then(resp => resp.json())
         .then(data => {
             if (data.status === 204){
-                editMode.children[0].innerText = data.toyBox.photo
+                console.log("hit toyBoxAdapter editToyBoxes")
+                console.log(editMode.children[0].innerText)
+                editMode.children[0].src = data.toyBox.photo
                 editMode.children[1].innerText = data.toyBox.name
                 editMode = false
-                document.getElementById('toy-box-submit').value = "Create Toy Box"
+                document.getElementById('toy-box-submit').innerText = "Create Toy Box"
                 photoInput.value = ""
                 nameInput.value = ""
             } else {

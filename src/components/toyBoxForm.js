@@ -17,7 +17,9 @@ class ToyBoxForm{
         nameInput.setAttribute("id", "name-input")
         nameInput.setAttribute("placeholder", "Name")
         const submit = document.createElement("button")
+        submit.setAttribute("id", "toy-box-submit")
         submit.setAttribute("type", "submit")
+        submit.setAttribute("value", "Create Toy Box")
         submit.innerText = "Create Toy Box"
 
         form.appendChild(header)

@@ -3,7 +3,7 @@ class ToyBox {
     constructor({id, name, photo, toys}){
         this.id = id
         this.name = name
-        this. photo = photo
+        this.photo = photo
         this.toys = toys.map(t => new Toy(t))
         this.listenEvents = this.listenEvents.bind(this)
     }
@@ -70,6 +70,13 @@ class ToyBox {
             
             case "edit":
                 console.log("hit edit button")
+                editMode = div
+                console.log(div)
+                document.getElementById("toy-box-submit").innerText = "Edit Toy Box"
+                console.log(div.children[0].innerText)
+                document.getElementById("photo-input").value = div.children[0].innerText
+                document.getElementById("name-input").value = div.children[1].innerText
+                console.log(div.children[0].innerText)
                 break
             
             default:
