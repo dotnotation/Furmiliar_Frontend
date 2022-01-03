@@ -73,10 +73,10 @@ class ToyBox {
                 editMode = div
                 console.log(div)
                 document.getElementById("toy-box-submit").innerText = "Edit Toy Box"
-                console.log(div.children[0].innerText)
-                document.getElementById("photo-input").value = div.children[0].innerText
+                console.log(div.children[0].src)
+                document.getElementById("photo-input").value = div.children[0].src
                 document.getElementById("name-input").value = div.children[1].innerText
-                console.log(div.children[0].innerText)
+                console.log(div.children[1])
                 break
             
             default:
