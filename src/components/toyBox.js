@@ -44,6 +44,9 @@ class ToyBox {
         console.log(this.toys)
         const toyContainer = document.getElementById("toy")
         toyContainer.innerHTML = ""
+        const toyBoxName = document.createElement("h3")
+        toyBoxName.innerHTML = `${this.name}'s Toys`
+        toyContainer.appendChild(toyBoxName)
         this.toys.forEach(t => t.renderToys())
     }
 
