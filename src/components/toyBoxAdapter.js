@@ -34,9 +34,9 @@ class ToyBoxAdapter {
         .then(data => {
             if (data.status === 204){
                 console.log("hit toyBoxAdapter editToyBoxes")
-                console.log(editMode.children[0].innerText)
-                editMode.children[0].src = data.toyBox.photo
-                editMode.children[1].innerText = data.toyBox.name
+                console.log(editMode.children[0], data.toy_box)
+                editMode.children[0].src = data.toy_box.photo
+                editMode.children[1].innerText = data.toy_box.name
                 editMode = false
                 document.getElementById('toy-box-submit').innerText = "Create Toy Box"
                 photoInput.value = ""
@@ -63,8 +63,9 @@ class ToyBoxAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
+            console.log("second then", data.toy_box, data.toy_box.name, data.toy_box.photo)
             if (data.status === 201){
-                const tb = new ToyBox(data.toyBox)
+                const tb = new ToyBox(data.toy_box)
                 tb.addToDom()
             } else {
                 alert(data.errors)

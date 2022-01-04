@@ -35,15 +35,15 @@ class ToyBoxForm{
     handleSubmit(e) {
         console.log("hit submit")
         e.preventDefault()
-        const photoInput = e.target[0]
-        console.log(e.target, e.target[0], e.target[1])
-        const nameInput = e.target[1]
+        const form = e.target
+        const photoInput = form[0]
+        const nameInput = form[1]
         if (editMode){
             console.log("editing")
             toyBoxAdapter.editToyBoxes(editMode, photoInput, nameInput)
         } else {
-        console.log(photoInput, nameInput)
-        toyBoxAdapter.createToyBox(photoInput, nameInput)
+            console.log(photoInput, nameInput)
+            toyBoxAdapter.createToyBox(photoInput, nameInput)
         }
     }
 
