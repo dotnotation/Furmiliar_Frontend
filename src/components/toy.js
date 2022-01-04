@@ -20,7 +20,6 @@ class Toy {
         const toyCard = document.createElement("div")
         toyCard.className = "toy-card"
         toyCard.setAttribute("id", "toy-card")
-        //toyCard.setAttribute("id", `toy-${this.id}`)
         const toyPhoto = document.createElement("img")
         toyPhoto.src = this.photo
         toyPhoto.className = "toy-photo"

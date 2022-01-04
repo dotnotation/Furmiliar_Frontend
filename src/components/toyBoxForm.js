@@ -36,6 +36,7 @@ class ToyBoxForm{
         console.log("hit submit")
         e.preventDefault()
         const photoInput = e.target[0]
+        console.log(e.target, e.target[0], e.target[1])
         const nameInput = e.target[1]
         if (editMode){
             console.log("editing")
@@ -56,13 +57,6 @@ class ToyBoxForm{
         const action = e.target.dataset.action
     
         switch (action) {
-            case "open":
-                console.log("hit open button")
-                console.log("Opening Toy Box", div.dataset.id, this)
-                console.log(this.id == div.dataset.id)
-                if (this.id == div.dataset.id) this.getToys()
-                break
-
             case "delete":
                 console.log("hit delete button")
                 toyBoxAdapter.deleteToyBox(div)

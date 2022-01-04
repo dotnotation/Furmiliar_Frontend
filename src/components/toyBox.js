@@ -5,6 +5,7 @@ class ToyBox {
         this.name = name
         this.photo = photo
         this.toys = toys.map(t => new Toy(t))
+        this.openEvent = this.openEvent.bind(this)
     }
 
     addToDom(){
@@ -21,6 +22,7 @@ class ToyBox {
         openToyBox.innerText = "Open Toy Box" 
         openToyBox.setAttribute("id", `toy-box-button-${this.id}`)
         openToyBox.setAttribute("data-action", "open")
+        openToyBox.addEventListener("click", this.openEvent)
         const deleteToyBox = document.createElement("button")
         deleteToyBox.innerHTML = "&#10006"
         deleteToyBox.setAttribute("id", "toy-box-delete")
@@ -46,6 +48,24 @@ class ToyBox {
         toyBoxName.innerHTML = `${this.name}'s Toys`
         toyContainer.appendChild(toyBoxName)
         this.toys.forEach(t => t.renderToys())
+    }
+
+    openEvent(e){
+        console.log("listenEvents hit", e.target.parentElement)
+        const div = e.target.parentElement
+        const action = e.target.dataset.action
+
+        switch (action) {
+            case "open":
+                console.log("hit open button")
+                console.log("Opening Toy Box", div.dataset.id, this)
+                console.log(this.id == div.dataset.id)
+                if (this.id == div.dataset.id) this.getToys()
+                break
+
+            default:
+                break
+        }
     }
  
 }
