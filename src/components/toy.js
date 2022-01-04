@@ -27,6 +27,8 @@ class Toy {
         toyName.innerText = this.name
         const toyBrand = document.createElement("h5")
         toyBrand.innerText = `Brand: ${this.brand}`
+        const toyPrice = document.createElement("h5")
+        toyPrice.innerText = `Price: ${this.price}`
         const toyURL = document.createElement("h5")
         toyURL.innerHTML = `Website: <a href="${this.url}">${this.url}</a>`
         const toyRating = document.createElement("h5")
