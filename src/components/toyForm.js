@@ -31,12 +31,15 @@ class ToyForm {
         const repairInput = document.createElement("span")
         repairInput.innerHTML = `Needs Repair? <input type="radio" name="needs-repair" value="true">True
             <input type="radio" name="needs-repair" value="false">False`
-        
-        // const repairInputFalse = document.createElement("input")
-        // repairInputFalse.setAttribute("type", "radio")
-        // repairInputFalse.setAttribute("id", "needs-repair-input")
-        // repairInputFalse.setAttribute("value", false)
-        // repairInputFalse.setAttribute("name", "needs-repair")
+        const squeakerInput = document.createElement("span")
+        squeakerInput.innerHTML = `Squeaker? <input type="radio" name="squeaker" value="true">True
+            <input type="radio" name="squeaker" value="false">False`
+        const crinkleInput = document.createElement("span")
+        crinkleInput.innerHTML = `Crinkle? <input type="radio" name="crinkle" value="true">True
+            <input type="radio" name="crinkle" value="false">False`
+        const treatInput = document.createElement("span")
+        treatInput.innerHTML = `Hides Treats? <input type="radio" name="treat" value="true">True
+            <input type="radio" name="treat" value="false">False`
         const submit = document.createElement("button")
         submit.setAttribute("id", "toy-submit")
         submit.setAttribute("type", "submit")
@@ -50,8 +53,9 @@ class ToyForm {
         toyForm.appendChild(websiteInput)
         toyForm.appendChild(ratingInput)
         toyForm.appendChild(repairInput)
-        // toyForm.appendChild(repairInputTrue)
-        // toyForm.appendChild(repairInputFalse)
+        toyForm.appendChild(squeakerInput)
+        toyForm.appendChild(crinkleInput)
+        toyForm.appendChild(treatInput)
         toyForm.appendChild(submit)
         toyFormContainer.append(toyForm)
     }
