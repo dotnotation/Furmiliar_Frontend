@@ -5,6 +5,7 @@ class ToyForm {
 
     createToyForm(){
         const toyFormContainer = document.getElementById("toy-form")
+        toyFormContainer.innerHTML = ""
         toyFormContainer.style.display = "inline-block"
         const toyForm = document.createElement("form")
         toyForm.innerHTML = `<h2>Add a New Toy</h2>
@@ -12,7 +13,7 @@ class ToyForm {
             <input type="text" id="name-input" placeholder="Name">&emsp;
             <input type="text" id="brand-input" placeholder="Brand">&emsp;
             <input type="text" id="website-input" placeholder="Website URL">&emsp;
-            <input type="text" id="rating-input" placeholder="Rating 1-5">&emsp;
+            <input type="text" id="rating-input" placeholder="Rating 1-5">&emsp;<br><br>
             <strong>Needs Repair?</strong> <input type="radio" name="needs-repair" value="true">True
             <input type="radio" name="needs-repair" value="false">False &emsp;
             <strong>Squeaker?</strong> <input type="radio" name="squeaker" value="true">True
@@ -20,8 +21,7 @@ class ToyForm {
             <strong>Crinkle?</strong> <input type="radio" name="crinkle" value="true">True
             <input type="radio" name="crinkle" value="false">False &emsp;
             <strong>Hides Treats?</strong> <input type="radio" name="treat" value="true">True
-            <input type="radio" name="treat" value="false">False &emsp;
-            `
+            <input type="radio" name="treat" value="false">False &emsp;<br><br>`
         // const header = document.createElement("h2")
         // header.innerText = "Add a New Toy"
         // const photoInput = document.createElement("input")
