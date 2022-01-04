@@ -12,6 +12,7 @@ class ToyForm {
             <input type="text" id="photo-input" placeholder="Photo URL">&emsp;
             <input type="text" id="name-input" placeholder="Name">&emsp;
             <input type="text" id="brand-input" placeholder="Brand">&emsp;
+            <input type="text" id="price-input" placeholder="Price">&emsp;
             <input type="text" id="url-input" placeholder="Website URL">&emsp;
             <input type="text" id="rating-input" placeholder="Rating 1-5">&emsp;<br><br>
             <strong>Needs Repair?</strong> <input type="radio" name="needs-repair" value="true">True
@@ -74,5 +75,22 @@ class ToyForm {
         // toyForm.appendChild(treatInput)
         toyForm.appendChild(submit)
         toyFormContainer.append(toyForm)
+    }
+
+    toySubmit(e) {
+        console.log("hit toy submit")
+        e.preventDefault()
+        const form = e.target
+        const photoInput = form[0]
+        const nameInput = form[1]
+        const photoInput, nameInput, priceInput,brandInput, urlInput, ratingInput, needsRepairInput, squeakerInput, crinkleInput, treatInput
+        const 
+        if (editMode){
+            console.log("editing")
+            toyBoxAdapter.editToyBoxes(editMode, photoInput, nameInput)
+        } else {
+            console.log(photoInput, nameInput)
+            toyBoxAdapter.createToyBox(photoInput, nameInput)
+        }
     }
 }
