@@ -56,6 +56,7 @@ class Toy {
         toyCard.appendChild(toyPhoto)
         toyCard.appendChild(toyName)
         toyCard.appendChild(toyBrand)
+        toyCard.appendChild(toyPrice)
         toyCard.appendChild(toyURL)
         toyCard.appendChild(toyRating)
         toyCard.appendChild(toyRepair)
