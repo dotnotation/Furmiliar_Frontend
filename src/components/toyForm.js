@@ -1,6 +1,7 @@
 class ToyForm {
     constructor(){
-
+        this.toySubmit = this.toySubmit.bind(this)
+        this.toyEvents = this.toyEvents.bind(this)
     }
 
     createToyForm(){
@@ -75,20 +76,62 @@ class ToyForm {
         // toyForm.appendChild(treatInput)
         toyForm.appendChild(submit)
         toyFormContainer.append(toyForm)
+
+        toyForm.addEventListener("submit", this.toySubmit)
     }
 
     toySubmit(e) {
         console.log("hit toy submit")
         e.preventDefault()
         const form = e.target
-        const toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput
-        const 
+        //const toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput
+        const toyPhotoInput = form[0]
+        const toyNameInput = form[1]
+        const toyBrandInput = form[2]
+        const toyPriceInput = form[3]
+        const toyUrlInput = form[4]
+        const toyRatingInput = form[5]
+        const toyRepairInput = form[6]
+        const toySqueakerInput = form[7]
+        const toyCrinkleInput = form[8]
+        const toyTreatInput = form[9]
         if (editMode){
-            console.log("editing")
-            toyBoxAdapter.editToyBoxes(editMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
+            console.log("editing toy")
+            toyAdapter.editToy(editMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
         } else {
             console.log(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
-            toyBoxAdapter.createToy(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
+            toyAdapter.createToy(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
+        }
+    }
+
+    listenToys(){
+        const toyContainer = document.getElementById("toy")
+        toyContainer.addEventListener("click", this.toyEvents)
+    }
+
+    toyEvents(e){
+        const toyDiv = e.target.parentElement
+        const toyAction = e.target.dataset.action
+    
+        switch (toyAction) {
+            case "delete":
+                console.log("hit toy delete button")
+                toyAdapter.deleteToy(toyDiv)
+                break
+            
+            case "edit":
+                console.log("hit toy edit button")
+                editMode = toyDiv
+                console.log(toyDiv)
+                document.getElementById("toy-submit").innerText = "Edit Toy"
+                console.log(toyDiv.children[0].src)
+                document.getElementById("toy-photo-input").value = toyDiv.children[0].src
+                document.getElementById("toy-name-input").value = toyDiv.children[1].innerText
+                console.log(toyDiv.children[1])
+                break
+            
+            default:
+                break
         }
     }
 }

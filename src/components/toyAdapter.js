@@ -94,8 +94,8 @@ class ToyBoxAdapter {
         .catch(err => console.error(err))
     }
 
-    deleteToy(div){
-        fetch(`${this.baseBoxURL}/${div.dataset.id}`, {
+    deleteToy(toyDiv){
+        fetch(`${this.baseBoxURL}/${toyDiv.dataset.id}`, {
             method: "DELETE"
         })
         .then(resp => {
@@ -105,7 +105,7 @@ class ToyBoxAdapter {
         .then(data => {
             if (data.message === "Successfully deleted"){
                 // delete li for DOM
-                div.remove()
+                toyDiv.remove()
             } else {
                 alert(data.message)
             }
