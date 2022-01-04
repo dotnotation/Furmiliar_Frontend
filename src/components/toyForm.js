@@ -9,19 +9,19 @@ class ToyForm {
         toyFormContainer.style.display = "inline-block"
         const toyForm = document.createElement("form")
         toyForm.innerHTML = `<h2>Add a New Toy</h2>
-            <input type="text" id="photo-input" placeholder="Photo URL">&emsp;
-            <input type="text" id="name-input" placeholder="Name">&emsp;
-            <input type="text" id="brand-input" placeholder="Brand">&emsp;
-            <input type="text" id="price-input" placeholder="Price">&emsp;
-            <input type="text" id="url-input" placeholder="Website URL">&emsp;
-            <input type="text" id="rating-input" placeholder="Rating 1-5">&emsp;<br><br>
-            <strong>Needs Repair?</strong> <input type="radio" name="needs-repair" value="true">True
+            <input type="text" id="toy-photo-input" placeholder="Photo URL">&emsp;
+            <input type="text" id="toy-name-input" placeholder="Name">&emsp;
+            <input type="text" id="toy-brand-input" placeholder="Brand">&emsp;
+            <input type="text" id="toy-price-input" placeholder="Price">&emsp;
+            <input type="text" id="toy-url-input" placeholder="Website URL">&emsp;
+            <input type="text" id="toy-rating-input" placeholder="Rating 1-5">&emsp;<br><br>
+            <strong>Needs Repair?</strong> <input type="radio" id="toy-needs-repair-input" name="needs-repair" value="true">True
             <input type="radio" name="needs-repair" value="false">False &emsp;
-            <strong>Squeaker?</strong> <input type="radio" name="squeaker" value="true">True
+            <strong>Squeaker?</strong> <input type="radio" id="toy-squeaker-input" name="squeaker" value="true">True
             <input type="radio" name="squeaker" value="false">False &emsp;
-            <strong>Crinkle?</strong> <input type="radio" name="crinkle" value="true">True
+            <strong>Crinkle?</strong> <input type="radio" id="toy-crinkle-input" name="crinkle" value="true">True
             <input type="radio" name="crinkle" value="false">False &emsp;
-            <strong>Hides Treats?</strong> <input type="radio" name="treat" value="true">True
+            <strong>Hides Treats?</strong> <input type="radio" id="toy-treat-input" name="treat" value="true">True
             <input type="radio" name="treat" value="false">False &emsp;<br><br>`
         // const header = document.createElement("h2")
         // header.innerText = "Add a New Toy"
@@ -81,16 +81,14 @@ class ToyForm {
         console.log("hit toy submit")
         e.preventDefault()
         const form = e.target
-        const photoInput = form[0]
-        const nameInput = form[1]
-        const photoInput, nameInput, priceInput,brandInput, urlInput, ratingInput, needsRepairInput, squeakerInput, crinkleInput, treatInput
+        const toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput
         const 
         if (editMode){
             console.log("editing")
-            toyBoxAdapter.editToyBoxes(editMode, photoInput, nameInput)
+            toyBoxAdapter.editToyBoxes(editMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
         } else {
-            console.log(photoInput, nameInput)
-            toyBoxAdapter.createToyBox(photoInput, nameInput)
+            console.log(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
+            toyBoxAdapter.createToy(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
         }
     }
 }

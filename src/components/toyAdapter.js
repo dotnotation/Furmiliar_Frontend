@@ -5,7 +5,7 @@ class ToyBoxAdapter {
     }
 
 
-    editToys(editMode, photoInput, nameInput, priceInput,brandInput, urlInput, ratingInput, needsRepairInput, squeakerInput, crinkleInput, treatInput){
+    editToys(editMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput){
         fetch(`${this.baseBoxURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -13,16 +13,16 @@ class ToyBoxAdapter {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                photo: photoInput.value,
-                name: nameInput.value,
-                price: priceInput.value,
-                brand: brandInput.value,
-                url: urlInput.value,
-                rating: ratingInput.value,
-                needs_repair: needsRepairInput.value,
-                squeaker: squeakerInput.value,
-                crinkle: crinkleInput.value,
-                treat: treatInput.value
+                photo: toyPhotoInput.value,
+                name: toyNameInput.value,
+                price: toyPriceInput.value,
+                brand: toyBrandInput.value,
+                url: toyUrlInput.value,
+                rating: toyRatingInput.value,
+                needs_repair: toyRepairInput.value,
+                squeaker: toySqueakerInput.value,
+                crinkle: toyCrinkleInput.value,
+                treat: toyTreatInput.value
             })
         })
         .then(resp => resp.json())
@@ -32,16 +32,16 @@ class ToyBoxAdapter {
                 console.log(editMode.children[0], data.toy)
                 editMode = false
                 document.getElementById('toy-box-submit').innerText = "Add Toy"
-                photoInput.value = ""
-                nameInput.value = ""
-                priceInput.value = ""
-                brandInput.value = ""
-                urlInput.value = ""
-                ratingInput.value = ""
-                needsRepairInput = ""
-                squeakerInput = ""
-                crinkleInput = ""
-                treatInput = ""
+                toyPhotoInput.value = ""
+                toyNameInput.value = ""
+                toyPriceInput.value = ""
+                toyBrandInput.value = ""
+                toyUrlInput.value = ""
+                toyRatingInput.value = ""
+                toyRepairInput = ""
+                toySqueakerInput = ""
+                toyCrinkleInput = ""
+                toyTreatInput = ""
 
             } else {
                 alert(data.errors)
@@ -51,7 +51,7 @@ class ToyBoxAdapter {
         .catch(err => console.error(err))
     }
 
-    createToy(photoInput, nameInput, priceInput,brandInput, urlInput, ratingInput, needsRepairInput, squeakerInput, crinkleInput, treatInput){
+    createToy(toyPhotoInput, toyNameInput, toyPriceInput,toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput){
         fetch(this.baseBoxURL, {
             method: "POST",
             headers: {
@@ -59,16 +59,16 @@ class ToyBoxAdapter {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                photo: photoInput.value,
-                name: nameInput.value,
-                price: priceInput.value,
-                brand: brandInput.value,
-                url: urlInput.value,
-                rating: ratingInput.value,
-                needs_repair: needsRepairInput.value,
-                squeaker: squeakerInput.value,
-                crinkle: crinkleInput.value,
-                treat: treatInput.value
+                photo: toyPhotoInput.value,
+                name: toyNameInput.value,
+                price: toyPriceInput.value,
+                brand: toyBrandInput.value,
+                url: toyUrlInput.value,
+                rating: toyRatingInput.value,
+                needs_repair: toyRepairInput.value,
+                squeaker: toySqueakerInput.value,
+                crinkle: toyCrinkleInput.value,
+                treat: toyTreatInput.value
             })   
         })
         .then(resp => resp.json())
@@ -80,16 +80,16 @@ class ToyBoxAdapter {
             } else {
                 alert(data.errors)
             }
-            photoInput.value = ""
-            nameInput.value = ""
-            priceInput.value = ""
-            brandInput.value = ""
-            urlInput.value = ""
-            ratingInput.value = ""
-            needsRepairInput = ""
-            squeakerInput = ""
-            crinkleInput = ""
-            treatInput = ""
+            toyPhotoInput.value = ""
+            toyNameInput.value = ""
+            toyPriceInput.value = ""
+            toyBrandInput.value = ""
+            toyUrlInput.value = ""
+            toyRatingInput.value = ""
+            toyRepairInput = ""
+            toySqueakerInput = ""
+            toyCrinkleInput = ""
+            toyTreatInput = ""
         })
         .catch(err => console.error(err))
     }
