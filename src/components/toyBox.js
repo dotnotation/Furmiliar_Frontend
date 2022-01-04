@@ -5,7 +5,6 @@ class ToyBox {
         this.name = name
         this.photo = photo
         this.toys = toys.map(t => new Toy(t))
-        this.listenEvents = this.listenEvents.bind(this)
     }
 
     addToDom(){
@@ -30,7 +29,6 @@ class ToyBox {
         editToyBox.innerHTML = "&#9999"
         editToyBox.setAttribute("id", "toy-box-edit")
         editToyBox.setAttribute("data-action", "edit")
-        toyBoxDiv.addEventListener("click", this.listenEvents)
 
         toyBoxDiv.appendChild(toyBoxCard)
         toyBoxCard.appendChild(photoBox)
@@ -48,40 +46,6 @@ class ToyBox {
         toyBoxName.innerHTML = `${this.name}'s Toys`
         toyContainer.appendChild(toyBoxName)
         this.toys.forEach(t => t.renderToys())
-    }
-
-    listenEvents(e){
-        console.log("listenEvents hit", e.target.parentElement)
-        const div = e.target.parentElement
-        const action = e.target.dataset.action
-    
-        switch (action) {
-            case "open":
-                console.log("hit open button")
-                console.log("Opening Toy Box", div.dataset.id, this)
-                console.log(this.id == div.dataset.id)
-                if (this.id == div.dataset.id) this.getToys()
-                break
-
-            case "delete":
-                console.log("hit delete button")
-                toyBoxAdapter.deleteToyBox(div)
-                break
-            
-            case "edit":
-                console.log("hit edit button")
-                editMode = div
-                console.log(div)
-                document.getElementById("toy-box-submit").innerText = "Edit Toy Box"
-                console.log(div.children[0].src)
-                document.getElementById("photo-input").value = div.children[0].src
-                document.getElementById("name-input").value = div.children[1].innerText
-                console.log(div.children[1])
-                break
-            
-            default:
-                break
-        }
     }
  
 }

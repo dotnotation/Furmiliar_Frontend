@@ -18,7 +18,7 @@ class ToyBoxAdapter {
         .catch(error => console.error(error))
     }
 
-    editToyBoxes(editMode, nameInput, photoInput){
+    editToyBoxes(editMode, photoInput, nameInput){
         fetch(`${this.baseBoxURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {

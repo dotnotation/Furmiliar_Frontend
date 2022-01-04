@@ -6,4 +6,5 @@ const toyBoxForm = new ToyBoxForm
 document.addEventListener("DOMContentLoaded", () => {
     toyBoxAdapter.fetchToyBoxes()
     toyBoxForm.createToyBoxForm()
+    toyBoxForm.listenEvents()
 })

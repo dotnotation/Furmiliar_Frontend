@@ -1,6 +1,7 @@
 class ToyBoxForm{
     constructor(){
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleEvents = this.handleEvents.bind(this)
     }
 
     createToyBoxForm(){
@@ -36,7 +37,50 @@ class ToyBoxForm{
         e.preventDefault()
         const photoInput = e.target[0]
         const nameInput = e.target[1]
+        if (editMode){
+            console.log("editing")
+            toyBoxAdapter.editToyBoxes(editMode, photoInput, nameInput)
+        } else {
         console.log(photoInput, nameInput)
         toyBoxAdapter.createToyBox(photoInput, nameInput)
+        }
+    }
+
+    listenEvents(){
+        const toyBoxContainer = document.getElementById("toy-box")
+        toyBoxContainer.addEventListener("click", this.handleEvents)
+    }
+
+    handleEvents(e){
+        const div = e.target.parentElement
+        const action = e.target.dataset.action
+    
+        switch (action) {
+            case "open":
+                console.log("hit open button")
+                console.log("Opening Toy Box", div.dataset.id, this)
+                console.log(this.id == div.dataset.id)
+                if (this.id == div.dataset.id) this.getToys()
+                break
+
+            case "delete":
+                console.log("hit delete button")
+                toyBoxAdapter.deleteToyBox(div)
+                break
+            
+            case "edit":
+                console.log("hit edit button")
+                editMode = div
+                console.log(div)
+                document.getElementById("toy-box-submit").innerText = "Edit Toy Box"
+                console.log(div.children[0].src)
+                document.getElementById("photo-input").value = div.children[0].src
+                document.getElementById("name-input").value = div.children[1].innerText
+                console.log(div.children[1])
+                break
+            
+            default:
+                break
+        }
     }
 }
