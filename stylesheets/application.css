@@ -67,6 +67,18 @@ h3 {
     box-shadow: 3px 4px #A5E6DF
 }
 
+#toy-form {
+    text-align: center;
+    border: grey solid 1px;
+    border-radius: 25px;
+    padding: 2rem;
+    width: 80rem;
+    height: 10rem;
+    display: none;
+    margin: 2rem 2rem;
+    box-shadow: 3px 4px #A5E6DF
+}
+
 button {
     background-color: #B3C1F2;
     border: none;
