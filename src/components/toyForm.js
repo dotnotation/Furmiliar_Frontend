@@ -12,7 +12,7 @@ class ToyForm {
             <input type="text" id="photo-input" placeholder="Photo URL">&emsp;
             <input type="text" id="name-input" placeholder="Name">&emsp;
             <input type="text" id="brand-input" placeholder="Brand">&emsp;
-            <input type="text" id="website-input" placeholder="Website URL">&emsp;
+            <input type="text" id="url-input" placeholder="Website URL">&emsp;
             <input type="text" id="rating-input" placeholder="Rating 1-5">&emsp;<br><br>
             <strong>Needs Repair?</strong> <input type="radio" name="needs-repair" value="true">True
             <input type="radio" name="needs-repair" value="false">False &emsp;

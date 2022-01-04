@@ -4,21 +4,8 @@ class ToyBoxAdapter {
         this.baseBoxURL = `${baseURL}/toys`
     }
 
-    fetchToyBoxes(){
-        fetch(this.baseBoxURL)
-        .then(r => r.json())
-        .then(toyBoxes => {
-            console.log(toyBoxes)
-            toyBoxes.forEach(toyBox => {
-                const tb = new ToyBox(toyBox)
-                tb.addToDom()
-            })
- 
-        })
-        .catch(error => console.error(error))
-    }
 
-    editToyBoxes(editMode, photoInput, nameInput){
+    editToys(editMode, photoInput, nameInput, priceInput,brandInput, urlInput, ratingInput, needsRepairInput, squeakerInput, crinkleInput, treatInput){
         fetch(`${this.baseBoxURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -27,20 +14,35 @@ class ToyBoxAdapter {
             },
             body: JSON.stringify({
                 photo: photoInput.value,
-                name: nameInput.value
+                name: nameInput.value,
+                price: priceInput.value,
+                brand: brandInput.value,
+                url: urlInput.value,
+                rating: ratingInput.value,
+                needs_repair: needsRepairInput.value,
+                squeaker: squeakerInput.value,
+                crinkle: crinkleInput.value,
+                treat: treatInput.value
             })
         })
         .then(resp => resp.json())
         .then(data => {
             if (data.status === 204){
-                console.log("hit toyBoxAdapter editToyBoxes")
-                console.log(editMode.children[0], data.toy_box)
-                editMode.children[0].src = data.toy_box.photo
-                editMode.children[1].innerText = data.toy_box.name
+                console.log("hit toyAdapter editToys")
+                console.log(editMode.children[0], data.toy)
                 editMode = false
-                document.getElementById('toy-box-submit').innerText = "Create Toy Box"
+                document.getElementById('toy-box-submit').innerText = "Add Toy"
                 photoInput.value = ""
                 nameInput.value = ""
+                priceInput.value = ""
+                brandInput.value = ""
+                urlInput.value = ""
+                ratingInput.value = ""
+                needsRepairInput = ""
+                squeakerInput = ""
+                crinkleInput = ""
+                treatInput = ""
+
             } else {
                 alert(data.errors)
             }
@@ -49,7 +51,7 @@ class ToyBoxAdapter {
         .catch(err => console.error(err))
     }
 
-    createToyBox(photoInput, nameInput){
+    createToy(photoInput, nameInput, priceInput,brandInput, urlInput, ratingInput, needsRepairInput, squeakerInput, crinkleInput, treatInput){
         fetch(this.baseBoxURL, {
             method: "POST",
             headers: {
@@ -58,20 +60,36 @@ class ToyBoxAdapter {
             },
             body: JSON.stringify({
                 photo: photoInput.value,
-                name: nameInput.value
+                name: nameInput.value,
+                price: priceInput.value,
+                brand: brandInput.value,
+                url: urlInput.value,
+                rating: ratingInput.value,
+                needs_repair: needsRepairInput.value,
+                squeaker: squeakerInput.value,
+                crinkle: crinkleInput.value,
+                treat: treatInput.value
             })   
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log("second then", data.toy_box, data.toy_box.name, data.toy_box.photo)
+            console.log("second then", data.toy)
             if (data.status === 201){
-                const tb = new ToyBox(data.toy_box)
-                tb.addToDom()
+                const t = new Toy(data.toy)
+                t.renderToys()
             } else {
                 alert(data.errors)
             }
             photoInput.value = ""
             nameInput.value = ""
+            priceInput.value = ""
+            brandInput.value = ""
+            urlInput.value = ""
+            ratingInput.value = ""
+            needsRepairInput = ""
+            squeakerInput = ""
+            crinkleInput = ""
+            treatInput = ""
         })
         .catch(err => console.error(err))
     }
