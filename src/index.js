@@ -1,5 +1,6 @@
-const toyBoxAdapter = new ToyBoxAdapter("http://localhost:3000")
-const toyAdapter = new ToyAdapter("http://localhost:3000")
+const baseURL = "http://localhost:3000"
+const toyBoxAdapter = new ToyBoxAdapter(baseURL)
+const toyAdapter = new ToyAdapter(baseURL)
 let editMode = false
 let toyEditMode = false
 let currentToys = false

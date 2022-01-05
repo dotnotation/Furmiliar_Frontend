@@ -23,8 +23,14 @@ class ToyForm {
             <strong>Crinkle?</strong> <input type="radio" id="toy-crinkle-input" name="crinkle" value="true">True
             <input type="radio" name="crinkle" value="false">False &emsp;
             <strong>Hides Treats?</strong> <input type="radio" id="toy-treat-input" name="treat" value="true">True
-            <input type="radio" name="treat" value="false">False &emsp;<br><br>
-            <input type="text" name="toy-box-id"  id="toy-toy-box-id" value="${toyBoxAssociation}>`
+            <input type="radio" name="treat" value="false">False &emsp;<br><br>`
+
+        const addToyBoxId = document.createElement("input")
+        addToyBoxId.setAttribute("type", "hidden")
+        addToyBoxId.setAttribute("name", "toy-box-id")
+        addToyBoxId.setAttribute("id", "toy-box-id-input")
+        addToyBoxId.value = `${toyBoxAssociation}`
+        console.log(toyBoxAssociation)
 
         const submit = document.createElement("button")
         submit.setAttribute("id", "toy-submit")
@@ -32,6 +38,7 @@ class ToyForm {
         submit.setAttribute("value", "Add Toy")
         submit.innerText = "Add Toy"
 
+        toyForm.appendChild(addToyBoxId)
         toyForm.appendChild(submit)
         toyFormContainer.append(toyForm)
 
