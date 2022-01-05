@@ -19,7 +19,7 @@ class Toy {
         const toyDiv = document.getElementById("toy")
         const toyCard = document.createElement("div")
         toyCard.className = "toy-card"
-        toyCard.setAttribute("id", "toy-card")
+        toyCard.setAttribute("id", `toy-card-${this.id}`)
         const toyPhoto = document.createElement("img")
         toyPhoto.src = this.photo
         toyPhoto.className = "toy-photo"
@@ -41,6 +41,9 @@ class Toy {
         toyCrinkle.innerText = `Crinkle?: ${this.crinkle}`
         const toyTreat = document.createElement("h5")
         toyTreat.innerText = `Hides Treats?: ${this.treat}`
+        const toyBoxID = document.createElement("h6")
+        toyBoxID.innerText = `${this.toy_box_id}`
+        toyBoxID.setAttribute("id", "secret-id")
         const deleteToy = document.createElement("button")
         deleteToy.innerHTML = "&#10006"
         deleteToy.setAttribute("id", "toy-delete")
@@ -61,6 +64,7 @@ class Toy {
         toyCard.appendChild(toySqueaker)
         toyCard.appendChild(toyCrinkle)
         toyCard.appendChild(toyTreat)
+        toyCard.appendChild(toyBoxID)
         toyCard.appendChild(deleteToy)
         toyCard.appendChild(editToy)
     }

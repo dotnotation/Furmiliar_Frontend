@@ -76,7 +76,7 @@ class ToyAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            debugger
+            //debugger
             console.log("second then", data.toy)
             if (data.status === 201){
                 const t = new Toy(data.toy)

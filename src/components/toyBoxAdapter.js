@@ -61,7 +61,10 @@ class ToyBoxAdapter {
                 name: nameInput.value
             })   
         })
-        .then(resp => resp.json())
+        .then(resp => {
+            resp.json()
+            //debugger
+        })
         .then(data => {
             console.log("second then", data.toy_box, data.toy_box.name, data.toy_box.photo)
             if (data.status === 201){

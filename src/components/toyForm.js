@@ -16,12 +16,12 @@ class ToyForm {
             <input type="text" id="toy-price-input" placeholder="Price">&emsp;
             <input type="text" id="toy-url-input" placeholder="Website URL">&emsp;
             <input type="text" id="toy-rating-input" placeholder="Rating 1-5">&emsp;<br><br>
-            <strong>Needs Repair?</strong> <input type="radio" id="toy-needs-repair-input" name="needs-repair" value="true">True
-            <input type="radio" name="needs-repair" value="false">False &emsp;
-            <strong>Squeaker?</strong> <input type="radio" id="toy-squeaker-input" name="squeaker" value="true">True
-            <input type="radio" name="squeaker" value="false">False &emsp;
-            <strong>Crinkle?</strong> <input type="radio" id="toy-crinkle-input" name="crinkle" value="true">True
-            <input type="radio" name="crinkle" value="false">False &emsp;
+            <strong>Needs Repair?</strong> <input type="radio" id="toy-needs-repair-input-true" name="needs-repair" value="true">True
+            <input type="radio" id="toy-needs-repair-input-false" name="needs-repair" value="false">False &emsp;
+            <strong>Squeaker?</strong> <input type="radio" id="toy-squeaker-input-true" name="squeaker" value="true">True
+            <input type="radio" id="toy-squeaker-input-false" name="squeaker" value="false">False &emsp;
+            <strong>Crinkle?</strong> <input type="radio" id="toy-crinkle-input-true" name="crinkle" value="true">True
+            <input type="radio" d="toy-crinkle-input-false" name="crinkle" value="false">False &emsp;
             <strong>Hides Treats?</strong> <input type="radio" id="toy-treat-input" name="treat" value="true">True
             <input type="radio" name="treat" value="false">False &emsp;<br><br>`
 
@@ -55,10 +55,10 @@ class ToyForm {
         const toyPriceInput = toyEventForm[3]
         const toyUrlInput = toyEventForm[4]
         const toyRatingInput = toyEventForm[5]
-        const toyRepairInput = toyEventForm[6] || toyEventForm[7]
-        const toySqueakerInput = toyEventForm[8] || toyEventForm[9]
-        const toyCrinkleInput = toyEventForm[10] || toyEventForm[11]
-        const toyTreatInput = toyEventForm[12] || toyEventForm[13]
+        const toyRepairInput = toyEventForm.querySelector('input[name="needs-repair"]:checked').value
+        const toySqueakerInput = toyEventForm['squeaker'].value
+        const toyCrinkleInput = toyEventForm['crinkle'].value
+        const toyTreatInput = toyEventForm['treat'].value
         const toyBoxIDInput = toyEventForm[14]
         if (toyEditMode){
             console.log("editing toy")
@@ -91,10 +91,20 @@ class ToyForm {
                 toyEditMode = toyDiv
                 console.log(toyDiv)
                 document.getElementById("toy-submit").innerText = "Edit Toy"
-                console.log(toyDiv.children[0].src)
+                console.log(toyDiv.children)
+                //debugger
                 document.getElementById("toy-photo-input").value = toyDiv.children[0].src
                 document.getElementById("toy-name-input").value = toyDiv.children[1].innerText
-                console.log(toyDiv.children[1])
+                document.getElementById("toy-brand-input").value = toyDiv.children[2].innerText.split(": ")[1]
+                document.getElementById("toy-price-input").value = toyDiv.children[3].innerText.split(": ")[1]
+                document.getElementById("toy-url-input").value = toyDiv.children[4].innerText.split(": ")[1]
+                document.getElementById("toy-rating-input").value = toyDiv.children[5].innerText.split(": ")[1]
+                document.querySelector('input[name="needs-repair"]:checked').value = toyDiv.children[6].innerText.split(": ")[1]
+                document.querySelector('input[name="squeaker"]:checked').value = toyDiv.children[7].innerText.split(": ")[1]
+                document.querySelector('input[name="crinkle"]:checked').value = toyDiv.children[8].innerText.split(": ")[1]
+                document.querySelector('input[name="treat"]:checked').value = toyDiv.children[9].innerText.split(": ")[1]
+                document.getElementById("secret-id").value = toyDiv.children[10].innerText
+                
                 break
             
             default:
