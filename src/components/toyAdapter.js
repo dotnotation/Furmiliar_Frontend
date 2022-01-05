@@ -1,4 +1,4 @@
-class ToyBoxAdapter {
+class ToyAdapter {
     
     constructor(baseURL){
         this.baseBoxURL = `${baseURL}/toys`
