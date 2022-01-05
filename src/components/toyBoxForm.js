@@ -43,7 +43,7 @@ class ToyBoxForm{
             toyBoxAdapter.editToyBoxes(editMode, photoInput, nameInput)
         } else {
             console.log(photoInput, nameInput)
-            debugger
+            //debugger
             toyBoxAdapter.createToyBox(photoInput, nameInput)
         }
     }

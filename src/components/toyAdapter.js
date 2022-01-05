@@ -1,12 +1,12 @@
 class ToyAdapter {
     
     constructor(baseURL){
-        this.baseBoxURL = `${baseURL}/toys`
+        this.baseToyURL = `${baseURL}/toys`
     }
 
 
     editToys(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
-        fetch(`${this.baseBoxURL}/${editMode.dataset.id}`, {
+        fetch(`${this.baseToyURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -23,7 +23,7 @@ class ToyAdapter {
                 squeaker: toySqueakerInput.value,
                 crinkle: toyCrinkleInput.value,
                 treat: toyTreatInput.value,
-                toy_box_ID: toyBoxIDInput.value
+                toy_box_id: toyBoxIDInput.value
             })
         })
         .then(resp => resp.json())
@@ -54,7 +54,7 @@ class ToyAdapter {
     }
 
     createToy(toyPhotoInput, toyNameInput, toyPriceInput,toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
-        fetch(this.baseBoxURL, {
+        fetch(this.baseToyURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -71,11 +71,12 @@ class ToyAdapter {
                 squeaker: toySqueakerInput.value,
                 crinkle: toyCrinkleInput.value,
                 treat: toyTreatInput.value,
-                toy_box_ID: toyBoxIDInput.value
+                toy_box_id: toyBoxIDInput.value
             })   
         })
         .then(resp => resp.json())
         .then(data => {
+            debugger
             console.log("second then", data.toy)
             if (data.status === 201){
                 const t = new Toy(data.toy)
@@ -99,7 +100,7 @@ class ToyAdapter {
     }
 
     deleteToy(toyDiv){
-        fetch(`${this.baseBoxURL}/${toyDiv.dataset.id}`, {
+        fetch(`${this.baseToyURL}/${toyDiv.dataset.id}`, {
             method: "DELETE"
         })
         .then(resp => {

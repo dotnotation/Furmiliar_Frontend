@@ -61,8 +61,9 @@ class ToyBox {
                 console.log("Opening Toy Box", div.dataset.id, this)
                 console.log(this.id == div.dataset.id)
                 if (this.id == div.dataset.id) this.getToys()
+                    const toyBoxAssociation = this.id
                     const toyForm = new ToyForm
-                    toyForm.createToyForm()
+                    toyForm.createToyForm(toyBoxAssociation)
                 break
 
             default:
