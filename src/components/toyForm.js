@@ -23,7 +23,8 @@ class ToyForm {
             <strong>Crinkle?</strong> <input type="radio" id="toy-crinkle-input" name="crinkle" value="true">True
             <input type="radio" name="crinkle" value="false">False &emsp;
             <strong>Hides Treats?</strong> <input type="radio" id="toy-treat-input" name="treat" value="true">True
-            <input type="radio" name="treat" value="false">False &emsp;<br><br>`
+            <input type="radio" name="treat" value="false">False &emsp;<br><br>
+            <input type="hidden" name="toy-box-id"  id="toy-toy-box-id" value="${this.toy_box_id}>`
         // const header = document.createElement("h2")
         // header.innerText = "Add a New Toy"
         // const photoInput = document.createElement("input")
@@ -95,12 +96,13 @@ class ToyForm {
         const toySqueakerInput = toyEventForm[7]
         const toyCrinkleInput = toyEventForm[8]
         const toyTreatInput = toyEventForm[9]
+        const toyBoxIDInput = toyEventForm[10]
         if (toyEditMode){
             console.log("editing toy")
-            toyAdapter.editToy(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
+            toyAdapter.editToy(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput)
         } else {
-            console.log(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
-            toyAdapter.createToy(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
+            console.log(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput)
+            toyAdapter.createToy(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput)
         }
     }
 

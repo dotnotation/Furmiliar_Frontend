@@ -5,7 +5,7 @@ class ToyAdapter {
     }
 
 
-    editToys(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput){
+    editToys(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
         fetch(`${this.baseBoxURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -22,7 +22,8 @@ class ToyAdapter {
                 needs_repair: toyRepairInput.value,
                 squeaker: toySqueakerInput.value,
                 crinkle: toyCrinkleInput.value,
-                treat: toyTreatInput.value
+                treat: toyTreatInput.value,
+                toy_box_ID: toyBoxIDInput.value
             })
         })
         .then(resp => resp.json())
@@ -42,6 +43,7 @@ class ToyAdapter {
                 toySqueakerInput = ""
                 toyCrinkleInput = ""
                 toyTreatInput = ""
+                toyBoxIDInput = ""
 
             } else {
                 alert(data.errors)
@@ -51,7 +53,7 @@ class ToyAdapter {
         .catch(err => console.error(err))
     }
 
-    createToy(toyPhotoInput, toyNameInput, toyPriceInput,toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput){
+    createToy(toyPhotoInput, toyNameInput, toyPriceInput,toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
         fetch(this.baseBoxURL, {
             method: "POST",
             headers: {
@@ -68,7 +70,8 @@ class ToyAdapter {
                 needs_repair: toyRepairInput.value,
                 squeaker: toySqueakerInput.value,
                 crinkle: toyCrinkleInput.value,
-                treat: toyTreatInput.value
+                treat: toyTreatInput.value,
+                toy_box_ID: toyBoxIDInput.value
             })   
         })
         .then(resp => resp.json())
@@ -90,6 +93,7 @@ class ToyAdapter {
             toySqueakerInput = ""
             toyCrinkleInput = ""
             toyTreatInput = ""
+            toyBoxIDInput = ""
         })
         .catch(err => console.error(err))
     }
