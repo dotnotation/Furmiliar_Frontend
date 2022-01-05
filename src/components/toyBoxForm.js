@@ -43,6 +43,7 @@ class ToyBoxForm{
             toyBoxAdapter.editToyBoxes(editMode, photoInput, nameInput)
         } else {
             console.log(photoInput, nameInput)
+            debugger
             toyBoxAdapter.createToyBox(photoInput, nameInput)
         }
     }
@@ -67,10 +68,9 @@ class ToyBoxForm{
                 editMode = div
                 console.log(div)
                 document.getElementById("toy-box-submit").innerText = "Edit Toy Box"
-                console.log(div.children[0].src)
+                console.log(div.children[0].src, div.children[1].innerText)
                 document.getElementById("photo-input").value = div.children[0].src
                 document.getElementById("name-input").value = div.children[1].innerText
-                console.log(div.children[1])
                 break
             
             default:

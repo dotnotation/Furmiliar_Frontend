@@ -5,7 +5,7 @@ class ToyBoxAdapter {
     }
 
 
-    editToys(editMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput){
+    editToys(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput){
         fetch(`${this.baseBoxURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -29,7 +29,7 @@ class ToyBoxAdapter {
         .then(data => {
             if (data.status === 204){
                 console.log("hit toyAdapter editToys")
-                console.log(editMode.children[0], data.toy)
+                console.log(toyEditMode.children[0], data.toy)
                 editMode = false
                 document.getElementById('toy-box-submit').innerText = "Add Toy"
                 toyPhotoInput.value = ""

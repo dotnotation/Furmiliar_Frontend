@@ -83,21 +83,21 @@ class ToyForm {
     toySubmit(e) {
         console.log("hit toy submit")
         e.preventDefault()
-        const form = e.target
+        const toyEventForm = e.target
         //const toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput
-        const toyPhotoInput = form[0]
-        const toyNameInput = form[1]
-        const toyBrandInput = form[2]
-        const toyPriceInput = form[3]
-        const toyUrlInput = form[4]
-        const toyRatingInput = form[5]
-        const toyRepairInput = form[6]
-        const toySqueakerInput = form[7]
-        const toyCrinkleInput = form[8]
-        const toyTreatInput = form[9]
-        if (editMode){
+        const toyPhotoInput = toyEventForm[0]
+        const toyNameInput = toyEventForm[1]
+        const toyBrandInput = toyEventForm[2]
+        const toyPriceInput = toyEventForm[3]
+        const toyUrlInput = toyEventForm[4]
+        const toyRatingInput = toyEventForm[5]
+        const toyRepairInput = toyEventForm[6]
+        const toySqueakerInput = toyEventForm[7]
+        const toyCrinkleInput = toyEventForm[8]
+        const toyTreatInput = toyEventForm[9]
+        if (toyEditMode){
             console.log("editing toy")
-            toyAdapter.editToy(editMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
+            toyAdapter.editToy(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
         } else {
             console.log(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
             toyAdapter.createToy(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput)
@@ -121,7 +121,7 @@ class ToyForm {
             
             case "edit":
                 console.log("hit toy edit button")
-                editMode = toyDiv
+                toyEditMode = toyDiv
                 console.log(toyDiv)
                 document.getElementById("toy-submit").innerText = "Edit Toy"
                 console.log(toyDiv.children[0].src)
