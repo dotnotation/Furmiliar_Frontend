@@ -5,7 +5,7 @@ class ToyAdapter {
     }
 
 
-    editToys(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
+    editToy(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
         fetch(`${this.baseToyURL}/${editMode.dataset.id}`, {
             method: "PATCH",
             headers: {
