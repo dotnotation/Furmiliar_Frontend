@@ -30,7 +30,7 @@ class ToyAdapter {
         .then(data => {
             if (data.status === 204){
                 console.log("hit toyAdapter editToys")
-                console.log(toyEditMode.children[0], data.toy)
+                console.log(toyEditMode.children[0], data)
                 editMode = false
                 document.getElementById('toy-box-submit').innerText = "Add Toy"
                 toyPhotoInput.value = ""
@@ -77,13 +77,10 @@ class ToyAdapter {
         .then(resp => resp.json())
         .then(data => {
             //debugger
-            console.log("second then", data.toy)
-            if (data.status === 201){
-                const t = new Toy(data.toy)
+            console.log("second then", data)
+                const t = new Toy(data)
                 t.renderToys()
-            } else {
-                alert(data.errors)
-            }
+           
             toyPhotoInput.value = ""
             toyNameInput.value = ""
             toyPriceInput.value = ""
@@ -100,6 +97,8 @@ class ToyAdapter {
     }
 
     deleteToy(toyDiv){
+        console.log(toyDiv, toyDiv.dataset.id)
+        debugger
         fetch(`${this.baseToyURL}/${toyDiv.dataset.id}`, {
             method: "DELETE"
         })

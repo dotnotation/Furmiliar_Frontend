@@ -55,10 +55,10 @@ class ToyForm {
         const toyPriceInput = toyEventForm[3]
         const toyUrlInput = toyEventForm[4]
         const toyRatingInput = toyEventForm[5]
-        const toyRepairInput = toyEventForm.querySelector('input[name="needs-repair"]:checked').value
-        const toySqueakerInput = toyEventForm['squeaker'].value
-        const toyCrinkleInput = toyEventForm['crinkle'].value
-        const toyTreatInput = toyEventForm['treat'].value
+        const toyRepairInput = toyEventForm['needs-repair']
+        const toySqueakerInput = toyEventForm['squeaker']
+        const toyCrinkleInput = toyEventForm['crinkle']
+        const toyTreatInput = toyEventForm['treat']
         const toyBoxIDInput = toyEventForm[14]
         if (toyEditMode){
             console.log("editing toy")
@@ -79,6 +79,8 @@ class ToyForm {
     toyEvents(e){
         const toyDiv = e.target.parentElement
         const toyAction = e.target.dataset.action
+        console.log(toyDiv)
+        debugger
     
         switch (toyAction) {
             case "delete":
