@@ -80,18 +80,18 @@ class ToyAdapter {
             console.log("second then", data)
                 const t = new Toy(data)
                 t.renderToys()
-           
+            //debugger
             toyPhotoInput.value = ""
             toyNameInput.value = ""
             toyPriceInput.value = ""
             toyBrandInput.value = ""
             toyUrlInput.value = ""
             toyRatingInput.value = ""
-            toyRepairInput = ""
-            toySqueakerInput = ""
-            toyCrinkleInput = ""
-            toyTreatInput = ""
-            toyBoxIDInput = ""
+            document.querySelector('input[name="needs-repair"]:checked').checked = false
+            document.querySelector('input[name="squeaker"]:checked').checked = false
+            document.querySelector('input[name="crinkle"]:checked').checked = false
+            document.querySelector('input[name="treat"]:checked').checked = false
+            toyBoxIDInput.value = ""
         })
         .catch(err => console.error(err))
     }
