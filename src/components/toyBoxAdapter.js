@@ -34,9 +34,9 @@ class ToyBoxAdapter {
         .then(data => {
             if (data.status === 204){
                 console.log("hit toyBoxAdapter editToyBoxes")
-                console.log(editMode.children[0], data.toy_box)
-                editMode.children[0].src = data.toy_box.photo
-                editMode.children[1].innerText = data.toy_box.name
+                console.log(editMode.children[0], data)
+                editMode.children[0].src = data.photo
+                editMode.children[1].innerText = data.name
                 editMode = false
                 document.getElementById('toy-box-submit').innerText = "Create Toy Box"
                 photoInput.value = ""
@@ -50,7 +50,9 @@ class ToyBoxAdapter {
     }
 
     createToyBox(photoInput, nameInput){
+        // debugger
         fetch(this.baseBoxURL, {
+            crossDomain: true,
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -61,18 +63,19 @@ class ToyBoxAdapter {
                 name: nameInput.value
             })   
         })
-        .then(resp => {
-            resp.json()
-            //debugger
-        })
+        .then(resp => resp.json())
         .then(data => {
-            console.log("second then", data.toy_box, data.toy_box.name, data.toy_box.photo)
-            if (data.status === 201){
-                const tb = new ToyBox(data.toy_box)
-                tb.addToDom()
-            } else {
-                alert(data.errors)
-            }
+            debugger
+            //console.log("second then", data.toy_box, data.toy_box.name, data.toy_box.photo)
+            //debugger
+            // if (data.status === 201){
+            //     const tb = new ToyBox(data.toy_box)
+            //     tb.addToDom()
+            // } else {
+            //     alert(data.errors)
+            // }
+            const tb = new ToyBox(data)
+            tb.addToDom()
             photoInput.value = ""
             nameInput.value = ""
         })
