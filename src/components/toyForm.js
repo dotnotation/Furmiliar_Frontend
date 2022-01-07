@@ -100,15 +100,15 @@ class ToyForm {
                 console.log(toyDiv.children)
                 //debugger
 
-                function convertStgToBoolean(divValue){
-                    if (divValue === "true"){ 
-                        console.log("returning true")
-                        return true
-                    }else{
-                        console.log("returning false")
-                        return false
-                    }
-                }
+                // function convertStgToBoolean(divValue){
+                //     if (divValue === "true"){ 
+                //         console.log("returning true")
+                //         return true
+                //     }else{
+                //         console.log("returning false")
+                //         return false
+                //     }
+                // }
                 
                 document.getElementById("toy-photo-input").value = toyDiv.children[0].src
                 document.getElementById("toy-name-input").value = toyDiv.children[1].innerText
@@ -116,10 +116,10 @@ class ToyForm {
                 document.getElementById("toy-price-input").value = toyDiv.children[3].innerText.split(": ")[1]
                 document.getElementById("toy-url-input").value = toyDiv.children[4].innerText.split(": ")[1]
                 document.getElementById("toy-rating-input").value = toyDiv.children[5].innerText.split(": ")[1]
-                document.querySelector('input[name="needs-repair"]').value = convertStgToBoolean(toyDiv.children[6].innerText.split(": ")[1])
-                document.querySelector('input[name="squeaker"]').value = convertStgToBoolean(toyDiv.children[7].innerText.split(": ")[1])
-                document.querySelector('input[name="crinkle"]').value = convertStgToBoolean(toyDiv.children[8].innerText.split(": ")[1])
-                document.querySelector('input[name="treat"]').value = convertStgToBoolean(toyDiv.children[9].innerText.split(": ")[1])
+                // document.querySelector('input[name="needs-repair"]').value = convertStgToBoolean(toyDiv.children[6].innerText.split(": ")[1])
+                // document.querySelector('input[name="squeaker"]').value = convertStgToBoolean(toyDiv.children[7].innerText.split(": ")[1])
+                // document.querySelector('input[name="crinkle"]').value = convertStgToBoolean(toyDiv.children[8].innerText.split(": ")[1])
+                // document.querySelector('input[name="treat"]').value = convertStgToBoolean(toyDiv.children[9].innerText.split(": ")[1])
                 document.getElementById("secret-id").value = toyDiv.children[10].innerText
                 
                 break

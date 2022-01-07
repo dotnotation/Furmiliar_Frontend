@@ -6,7 +6,7 @@ class ToyAdapter {
 
 
     editToy(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
-        debugger
+        //debugger
         fetch(`${this.baseToyURL}/${toyEditMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -31,22 +31,21 @@ class ToyAdapter {
         .then(data => {
                 console.log("hit toyAdapter editToys")
                 console.log(data)
-                debugger
+                debugger 
                 toyEditMode.children[0].src = data.photo
                 toyEditMode.children[1].innerText = data.name
-                toyEditMode.children[2].innerText.split(": ")[1] = data.brand
-                toyEditMode.children[3].innerText.split(": ")[1] = data.price
-                toyEditMode.children[4].innerText.split(": ")[1] = data.url 
-                toyEditMode.children[5].innerText.split(": ")[1] = data.rating 
-                toyEditMode.children[6].innerText.split(": ")[1] = data.needs_repair
-                toyEditMode.children[7].innerText.split(": ")[1] = data.squeaker
-                toyEditMode.children[8].innerText.split(": ")[1] = data.crinkle
-                toyEditMode.children[9].innerText.split(": ")[1] = data.treat
+                toyEditMode.children[2].innerHTML = `Brand: ${data.brand}`
+                toyEditMode.children[3].innerHTML = `Price: ${data.price}`
+                toyEditMode.children[4].innerHTML = `Website: ${data.url}`
+                toyEditMode.children[5].innerHTML = `Rating: ${data.rating}` 
+                toyEditMode.children[6].innerHTML = `Needs Repair?: ${data.needs_repair}`
+                toyEditMode.children[7].innerHTML = `Squeaker?: ${data.squeaker}`
+                toyEditMode.children[8].innerHTML = `Crinkle?: ${data.crinkle}`
+                toyEditMode.children[9].innerHTML = `Hides Treats?: ${data.treat}`
                 toyEditMode.children[10].innerText = data.toy_box_id
-
                 
                 toyEditMode = false
-                document.getElementById('toy-box-submit').innerText = "Add Toy"
+                document.getElementById('toy-submit').innerText = "Add Toy"
                 toyPhotoInput.value = ""
                 toyNameInput.value = ""
                 toyPriceInput.value = ""
