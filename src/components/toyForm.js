@@ -65,8 +65,6 @@ class ToyForm {
             debugger
             toyAdapter.editToy(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput)
         } else {
-            console.log(toyPhotoInput.value, toyNameInput.value, toyPriceInput.value, toyBrandInput.value, toyUrlInput.value, toyRatingInput.value, toyRepairInput.value, toySqueakerInput.value, toyCrinkleInput.value, toyTreatInput.value, toyBoxIDInput.value)
-            debugger
             toyAdapter.createToy(toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput)
         }
     }
@@ -103,9 +101,13 @@ class ToyForm {
                 debugger
 
                 function convertStgToBoolean(divValue){
-                    if (divValue.value === "true") return true
-                    else
+                    if (divValue === "true"){ 
+                        console.log("returning true")
+                        return true
+                    }else{
+                        console.log("returning false")
                         return false
+                    }
                 }
                 
                 document.getElementById("toy-photo-input").value = toyDiv.children[0].src
