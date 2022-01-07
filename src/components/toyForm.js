@@ -76,6 +76,12 @@ class ToyForm {
         toyContainer.addEventListener("click", this.toyEvents)
     }
 
+    // convertStgToBoolean(divValue){
+    //         if (divValue.value === "true") return true
+    //         else
+    //             return false
+    // }
+
     toyEvents(e){
         const toyDiv = e.target.parentElement
         const toyAction = e.target.dataset.action
@@ -94,17 +100,24 @@ class ToyForm {
                 console.log(toyDiv)
                 document.getElementById("toy-submit").innerText = "Edit Toy"
                 console.log(toyDiv.children)
-                //debugger
+                debugger
+
+                function convertStgToBoolean(divValue){
+                    if (divValue.value === "true") return true
+                    else
+                        return false
+                }
+                
                 document.getElementById("toy-photo-input").value = toyDiv.children[0].src
                 document.getElementById("toy-name-input").value = toyDiv.children[1].innerText
                 document.getElementById("toy-brand-input").value = toyDiv.children[2].innerText.split(": ")[1]
                 document.getElementById("toy-price-input").value = toyDiv.children[3].innerText.split(": ")[1]
                 document.getElementById("toy-url-input").value = toyDiv.children[4].innerText.split(": ")[1]
                 document.getElementById("toy-rating-input").value = toyDiv.children[5].innerText.split(": ")[1]
-                document.querySelector('input[name="needs-repair"]:checked').value = toyDiv.children[6].innerText.split(": ")[1]
-                document.querySelector('input[name="squeaker"]:checked').value = toyDiv.children[7].innerText.split(": ")[1]
-                document.querySelector('input[name="crinkle"]:checked').value = toyDiv.children[8].innerText.split(": ")[1]
-                document.querySelector('input[name="treat"]:checked').value = toyDiv.children[9].innerText.split(": ")[1]
+                document.querySelector('input[name="needs-repair"]').checked = convertStgToBoolean(toyDiv.children[6].innerText.split(": ")[1])
+                document.querySelector('input[name="squeaker"]').checked = convertStgToBoolean(toyDiv.children[7].innerText.split(": ")[1])
+                document.querySelector('input[name="crinkle"]').checked = convertStgToBoolean(toyDiv.children[8].innerText.split(": ")[1])
+                document.querySelector('input[name="treat"]').checked = convertStgToBoolean(toyDiv.children[9].innerText.split(": ")[1])
                 document.getElementById("secret-id").value = toyDiv.children[10].innerText
                 
                 break

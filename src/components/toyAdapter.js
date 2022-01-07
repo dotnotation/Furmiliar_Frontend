@@ -39,10 +39,10 @@ class ToyAdapter {
                 toyBrandInput.value = ""
                 toyUrlInput.value = ""
                 toyRatingInput.value = ""
-                toyRepairInput = ""
-                toySqueakerInput = ""
-                toyCrinkleInput = ""
-                toyTreatInput = ""
+                document.querySelector('input[name="needs-repair"]:checked').checked = false
+                document.querySelector('input[name="squeaker"]:checked').checked = false
+                document.querySelector('input[name="crinkle"]:checked').checked = false
+                document.querySelector('input[name="treat"]:checked').checked = false
                 toyBoxIDInput = ""
 
             } else {
