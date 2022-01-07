@@ -29,10 +29,23 @@ class ToyAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            if (data.status === 204){
                 console.log("hit toyAdapter editToys")
-                console.log(toyEditMode.children[0], data)
-                editMode = false
+                console.log(data)
+                debugger
+                toyEditMode.children[0].src = data.photo
+                toyEditMode.children[1].innerText = data.name
+                toyEditMode.children[2].innerText.split(": ")[1] = data.brand
+                toyEditMode.children[3].innerText.split(": ")[1] = data.price
+                toyEditMode.children[4].innerText.split(": ")[1] = data.url 
+                toyEditMode.children[5].innerText.split(": ")[1] = data.rating 
+                toyEditMode.children[6].innerText.split(": ")[1] = data.needs_repair
+                toyEditMode.children[7].innerText.split(": ")[1] = data.squeaker
+                toyEditMode.children[8].innerText.split(": ")[1] = data.crinkle
+                toyEditMode.children[9].innerText.split(": ")[1] = data.treat
+                toyEditMode.children[10].innerText = data.toy_box_id
+
+                
+                toyEditMode = false
                 document.getElementById('toy-box-submit').innerText = "Add Toy"
                 toyPhotoInput.value = ""
                 toyNameInput.value = ""
@@ -45,12 +58,7 @@ class ToyAdapter {
                 document.querySelector('input[name="crinkle"]:checked').checked = false
                 document.querySelector('input[name="treat"]:checked').checked = false
                 toyBoxIDInput = ""
-
-            } else {
-                alert(data.errors)
-            }
-
-        })
+            })
         .catch(err => console.error(err))
     }
 

@@ -84,7 +84,7 @@ class ToyForm {
         const toyDiv = e.target.parentElement
         const toyAction = e.target.dataset.action
         console.log(toyDiv)
-        debugger
+        //debugger
     
         switch (toyAction) {
             case "delete":
@@ -98,7 +98,7 @@ class ToyForm {
                 console.log(toyDiv)
                 document.getElementById("toy-submit").innerText = "Edit Toy"
                 console.log(toyDiv.children)
-                debugger
+                //debugger
 
                 function convertStgToBoolean(divValue){
                     if (divValue === "true"){ 
