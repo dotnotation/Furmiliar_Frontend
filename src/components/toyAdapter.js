@@ -6,7 +6,8 @@ class ToyAdapter {
 
 
     editToy(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
-        fetch(`${this.baseToyURL}/${editMode.dataset.id}`, {
+        debugger
+        fetch(`${this.baseToyURL}/${toyEditMode.dataset.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

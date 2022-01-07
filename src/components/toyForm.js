@@ -114,10 +114,10 @@ class ToyForm {
                 document.getElementById("toy-price-input").value = toyDiv.children[3].innerText.split(": ")[1]
                 document.getElementById("toy-url-input").value = toyDiv.children[4].innerText.split(": ")[1]
                 document.getElementById("toy-rating-input").value = toyDiv.children[5].innerText.split(": ")[1]
-                document.querySelector('input[name="needs-repair"]').checked = convertStgToBoolean(toyDiv.children[6].innerText.split(": ")[1])
-                document.querySelector('input[name="squeaker"]').checked = convertStgToBoolean(toyDiv.children[7].innerText.split(": ")[1])
-                document.querySelector('input[name="crinkle"]').checked = convertStgToBoolean(toyDiv.children[8].innerText.split(": ")[1])
-                document.querySelector('input[name="treat"]').checked = convertStgToBoolean(toyDiv.children[9].innerText.split(": ")[1])
+                document.querySelector('input[name="needs-repair"]').value = convertStgToBoolean(toyDiv.children[6].innerText.split(": ")[1])
+                document.querySelector('input[name="squeaker"]').value = convertStgToBoolean(toyDiv.children[7].innerText.split(": ")[1])
+                document.querySelector('input[name="crinkle"]').value = convertStgToBoolean(toyDiv.children[8].innerText.split(": ")[1])
+                document.querySelector('input[name="treat"]').value = convertStgToBoolean(toyDiv.children[9].innerText.split(": ")[1])
                 document.getElementById("secret-id").value = toyDiv.children[10].innerText
                 
                 break
