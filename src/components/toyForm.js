@@ -74,12 +74,6 @@ class ToyForm {
         toyContainer.addEventListener("click", this.toyEvents)
     }
 
-    // convertStgToBoolean(divValue){
-    //         if (divValue.value === "true") return true
-    //         else
-    //             return false
-    // }
-
     toyEvents(e){
         const toyDiv = e.target.parentElement
         const toyAction = e.target.dataset.action
@@ -109,6 +103,7 @@ class ToyForm {
                 //         return false
                 //     }
                 // }
+
                 
                 document.getElementById("toy-photo-input").value = toyDiv.children[0].src
                 document.getElementById("toy-name-input").value = toyDiv.children[1].innerText
