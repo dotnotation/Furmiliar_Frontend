@@ -8,7 +8,6 @@ class ToyBoxAdapter {
         fetch(this.baseBoxURL)
         .then(r => r.json())
         .then(toyBoxes => {
-            console.log(toyBoxes)
             toyBoxes.forEach(toyBox => {
                 const tb = new ToyBox(toyBox)
                 tb.addToDom()
@@ -33,8 +32,6 @@ class ToyBoxAdapter {
         .then(resp => resp.json())
         .then(data => {
             if (data.status === 204){
-                console.log("hit toyBoxAdapter editToyBoxes")
-                console.log(editMode.children[0], data)
                 editMode.children[0].src = data.photo
                 editMode.children[1].innerText = data.name
                 editMode = false
@@ -50,7 +47,6 @@ class ToyBoxAdapter {
     }
 
     createToyBox(photoInput, nameInput){
-        // debugger
         fetch(this.baseBoxURL, {
             crossDomain: true,
             method: "POST",
@@ -65,15 +61,6 @@ class ToyBoxAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            debugger
-            //console.log("second then", data.toy_box, data.toy_box.name, data.toy_box.photo)
-            //debugger
-            // if (data.status === 201){
-            //     const tb = new ToyBox(data.toy_box)
-            //     tb.addToDom()
-            // } else {
-            //     alert(data.errors)
-            // }
             const tb = new ToyBox(data)
             tb.addToDom()
             photoInput.value = ""
@@ -86,13 +73,9 @@ class ToyBoxAdapter {
         fetch(`${this.baseBoxURL}/${div.dataset.id}`, {
             method: "DELETE"
         })
-        .then(resp => {
-            console.log(resp)
-            return resp.json()
-        })
+        .then(resp => resp.json())
         .then(data => {
             if (data.message === "Successfully deleted"){
-                // delete li for DOM
                 div.remove()
             } else {
                 alert(data.message)

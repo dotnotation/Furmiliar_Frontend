@@ -6,7 +6,6 @@ class ToyAdapter {
 
 
     editToy(toyEditMode, toyPhotoInput, toyNameInput, toyPriceInput, toyBrandInput, toyUrlInput, toyRatingInput, toyRepairInput, toySqueakerInput, toyCrinkleInput, toyTreatInput, toyBoxIDInput){
-        //debugger
         fetch(`${this.baseToyURL}/${toyEditMode.dataset.id}`, {
             method: "PATCH",
             headers: {
@@ -84,11 +83,8 @@ class ToyAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            //debugger
-            console.log("second then", data)
                 const t = new Toy(data)
                 t.renderToys()
-            //debugger
             toyPhotoInput.value = ""
             toyNameInput.value = ""
             toyPriceInput.value = ""
@@ -105,18 +101,12 @@ class ToyAdapter {
     }
 
     deleteToy(toyDiv){
-        console.log(toyDiv, toyDiv.dataset.id)
-        debugger
         fetch(`${this.baseToyURL}/${toyDiv.dataset.id}`, {
             method: "DELETE"
         })
-        .then(resp => {
-            console.log(resp)
-            return resp.json()
-        })
+        .then(resp => resp.json())
         .then(data => {
             if (data.message === "Successfully deleted"){
-                // delete li for DOM
                 toyDiv.remove()
             } else {
                 alert(data.message)

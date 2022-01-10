@@ -33,17 +33,13 @@ class ToyBoxForm{
     } 
 
     handleSubmit(e) {
-        console.log("hit submit")
         e.preventDefault()
         const form = e.target
         const photoInput = form[0]
         const nameInput = form[1]
         if (editMode){
-            console.log("editing")
             toyBoxAdapter.editToyBoxes(editMode, photoInput, nameInput)
         } else {
-            console.log(photoInput, nameInput)
-            //debugger
             toyBoxAdapter.createToyBox(photoInput, nameInput)
         }
     }
@@ -59,16 +55,12 @@ class ToyBoxForm{
     
         switch (action) {
             case "delete":
-                console.log("hit delete button")
                 toyBoxAdapter.deleteToyBox(div)
                 break
             
             case "edit":
-                console.log("hit edit button")
                 editMode = div
-                console.log(div)
                 document.getElementById("toy-box-submit").innerText = "Edit Toy Box"
-                console.log(div.children[0].src, div.children[1].innerText)
                 document.getElementById("photo-input").value = div.children[0].src
                 document.getElementById("name-input").value = div.children[1].innerText
                 break

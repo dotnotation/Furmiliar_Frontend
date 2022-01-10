@@ -41,7 +41,6 @@ class ToyBox {
     }
 
     getToys(){
-        console.log(this.toys)
         const toyContainer = document.getElementById("toy")
         toyContainer.innerHTML = ""
         const toyBoxName = document.createElement("h3")
@@ -51,15 +50,11 @@ class ToyBox {
     }
 
     openEvent(e){
-        console.log("listenEvents hit", e.target.parentElement)
         const div = e.target.parentElement
         const action = e.target.dataset.action
 
         switch (action) {
             case "open":
-                console.log("hit open button")
-                console.log("Opening Toy Box", div.dataset.id, this)
-                console.log(this.id == div.dataset.id)
                 if (this.id == div.dataset.id) this.getToys()
                     const toyBoxAssociation = this.id
                     const toyForm = new ToyForm
