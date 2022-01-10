@@ -28,7 +28,6 @@ class ToyBoxForm{
         form.appendChild(nameInput)
         form.appendChild(submit)
         formContainer.append(form)
-
         form.addEventListener("submit", this.handleSubmit)
     } 
 

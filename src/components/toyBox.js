@@ -31,7 +31,6 @@ class ToyBox {
         editToyBox.innerHTML = "&#9999"
         editToyBox.setAttribute("id", "toy-box-edit")
         editToyBox.setAttribute("data-action", "edit")
-
         toyBoxDiv.appendChild(toyBoxCard)
         toyBoxCard.appendChild(photoBox)
         toyBoxCard.appendChild(toyBoxName)

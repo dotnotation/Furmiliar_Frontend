@@ -53,7 +53,7 @@ class Toy {
         editToy.innerHTML = "&#9999"
         editToy.setAttribute("id", "toy-edit")
         editToy.setAttribute("data-action", "edit")
-
+        
         toyDiv.appendChild(toyCard)
         toyCard.appendChild(toyPhoto)
         toyCard.appendChild(toyName)

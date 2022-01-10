@@ -28,14 +28,11 @@ class ToyAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-                console.log("hit toyAdapter editToys")
-                console.log(data)
-                debugger 
                 toyEditMode.children[0].src = data.photo
                 toyEditMode.children[1].innerText = data.name
                 toyEditMode.children[2].innerHTML = `Brand: ${data.brand}`
                 toyEditMode.children[3].innerHTML = `Price: ${data.price}`
-                toyEditMode.children[4].innerHTML = `Website: ${data.url}`
+                toyEditMode.children[4].innerHTML = `Website: <a href="${data.url}">${data.url}</a>`
                 toyEditMode.children[5].innerHTML = `Rating: ${data.rating}` 
                 toyEditMode.children[6].innerHTML = `Needs Repair?: ${data.needs_repair}`
                 toyEditMode.children[7].innerHTML = `Squeaker?: ${data.squeaker}`
@@ -83,8 +80,9 @@ class ToyAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-                const t = new Toy(data)
-                t.renderToys()
+            const t = new Toy(data)
+            t.renderToys()
+            
             toyPhotoInput.value = ""
             toyNameInput.value = ""
             toyPriceInput.value = ""

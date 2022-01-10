@@ -31,17 +31,12 @@ class ToyBoxAdapter {
         })
         .then(resp => resp.json())
         .then(data => {
-            if (data.status === 204){
                 editMode.children[0].src = data.photo
                 editMode.children[1].innerText = data.name
                 editMode = false
                 document.getElementById('toy-box-submit').innerText = "Create Toy Box"
                 photoInput.value = ""
                 nameInput.value = ""
-            } else {
-                alert(data.errors)
-            }
-
         })
         .catch(err => console.error(err))
     }
