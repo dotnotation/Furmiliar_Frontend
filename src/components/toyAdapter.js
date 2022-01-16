@@ -82,7 +82,7 @@ class ToyAdapter {
         .then(data => {
             const t = new Toy(data)
             t.renderToys()
-            
+
             toyPhotoInput.value = ""
             toyNameInput.value = ""
             toyPriceInput.value = ""

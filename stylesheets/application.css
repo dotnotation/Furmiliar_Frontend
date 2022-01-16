@@ -6,11 +6,12 @@ body {
 .header {
     background-color: #A9E0FC;
     color: whitesmoke;
-    height: 7rem;
+    height: 9rem;
     padding: 1rem;
     -webkit-text-stroke-color: #B3C1F2;
     -webkit-text-stroke-width: 2px;
     font-size: 22pt;
+    line-height: 80%;
 }
 
 .toy-box-card {
