@@ -11,6 +11,8 @@ Install all required gems in the Gemfile by running `bundle install`. Create you
 <h3>Using Furmiliar:</h3>
 First, click on the toy box you want to add more toys to, or create your own toy box. Then you can create, read, update, or delete any of the toys. The only required field for both the toy box and the toy is that it must have a name. 
 
+<img src="./public/FurmiliarJS.gif" alt="preview of website" />
+
 <h3>Model Diagram:</h3>
 <img src="/public/Furmiliar.jpeg" title="diagram of models for Furmiliar" alt="a diagram showing the relationship and attributes of the models for the Furmiliar project">
 
